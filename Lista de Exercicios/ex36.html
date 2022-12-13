@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Idades</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .line{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1 class="title">Calculadora de Idades</h1>
+            <div class="line">
+                <p>Homem 1: </p>
+                <input type="number" name="" id="homem1" class="inputText" placeholder="Valor">
+            </div>
+            <div class="line">
+                <p>Homem 2: </p>
+                <input type="number" name="" id="homem2" class="inputText" placeholder="Valor">
+            </div>
+            <div class="line">
+                <p>Mulher 1: </p>
+                <input type="number" name="" id="mulher1" class="inputText" placeholder="Valor">
+            </div>
+            <div class="line">
+                <p>Mulher 2: </p>
+                <input type="number" name="" id="mulher2" class="inputText" placeholder="Valor">
+            </div>
+           
+            <button class="btn">Calcular</button>
+            <div class="result"></div>
+        </div>
+    </div>
+    
+    <script>
+        document.querySelector(".btn").addEventListener("click", () => {
+            let homem1 = parseInt(document.querySelector("#homem1").value);
+            let homem2 = parseInt(document.querySelector("#homem2").value);
+            let mulher1 = parseInt(document.querySelector("#mulher1").value);
+            let mulher2 = parseInt(document.querySelector("#mulher2").value);
+            let homemN, homemV, mulherN, mulherV;
+
+            if(homem1 < homem2){
+                homemN = homem1;
+                homemV = homem2;
+            } else {
+                homemN = homem2;
+                homemV = homem1;
+            }
+
+            if(mulher1 < mulher2){
+                mulherN = mulher1;
+                mulherV = mulher2;
+            } else {
+                mulherN = mulher2;
+                mulherV = mulher1;
+            }
+
+            document.querySelector(".result").innerHTML = `Homem mais velho(<strong>${homemV}</strong>) + Mulher mais nova(<strong>${mulherN}</strong>) = <strong>${homemV + mulherN}</strong> <br>` +
+                                                          `Homem mais novo(<strong>${homemN}</strong>) + Mulher mais velha(<strong>${mulherV}</strong>) = <strong>${homemN + mulherV}</strong> <br>`;                                         
+        })
+    </script>
+</body>
+</html>

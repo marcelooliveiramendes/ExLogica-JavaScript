@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Média do Aluno</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .line{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1 class="title">Média do Aluno</h1>
+            <div class="line">
+                <p>Primeira Nota: </p>
+                <input type="number" id="num1" class="codEmpregado" placeholder="Nota">
+            </div>
+            <div class="line">
+                <p>Segunda Nota: </p>
+                <input type="number" id="num2" class="idade" placeholder="Nota">
+            </div>
+            <div class="line">
+                <p>Segunda Nota: </p>
+                <input type="number" id="num3" class="anoEntrada" placeholder="Nota">
+            </div>
+           
+            <button class="btn">Calcular</button>
+            <div class="result"></div>
+        </div>
+    </div>
+    
+
+    <script>
+        document.querySelector(".btn").addEventListener("click", () => {
+            let n1 = parseInt(document.querySelector("#num1").value);
+            let n2 = parseInt(document.querySelector("#num2").value);
+            let n3 = parseInt(document.querySelector("#num3").value);
+            let media = (n1 + n2 + n3) / 3;
+            let mediaAproveitamento = (n1 + (n2 * 2) + (n3 * 3) + media) / 7
+            let conceito;
+
+            if(mediaAproveitamento >= 9){
+                conceito = "A";
+            } else if(mediaAproveitamento >= 7.5 && media < 9){
+                conceito = "B";
+            } else if(mediaAproveitamento >= 6 && mediaAproveitamento < 7.5){
+                conceito = "C";
+            } else {
+                conceito = "D";
+            }
+
+            document.querySelector(".result").innerHTML = `Média do(a) aluno(a):<strong> ${mediaAproveitamento.toFixed(1)}</strong><br>`+
+                                                          `Conceito: <strong>${conceito}</strong>`;
+            
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruteira</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .line{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        hr{
+            margin: 10px 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1 class="title">Fruteira</h1>
+            <br>
+            <div class="line">
+                <p>Morango: </p>
+                <input type="number" name="" min="0" id="quant1" class="inputText" placeholder="Kilos">
+            </div>
+            <div class="line">
+                <p>Maçã: </p>
+                <input type="number" name="" min="0" id="quant2" class="inputText" placeholder="Kilos">
+            </div>
+            <button class="btn">Calcular</button>
+            <div class="result"></div>
+        </div>
+    </div>
+    
+
+    <script>
+        document.querySelector(".btn").addEventListener("click", () => {
+            let morango = parseInt(document.querySelector("#quant1").value);
+            let maca = parseInt(document.querySelector("#quant2").value);
+            let total, pesoTotal, totalMorango, totalMaca, preco, desconto;
+
+            pesoTotal = morango + maca;
+            desconto = 0;
+
+            if(morango <= 5){
+                preco = 2.5;
+                totalMorango = morango * preco;
+            } else {
+                preco = 2.2;
+                totalMorango = morango * preco
+            }
+
+            if(maca <= 5){
+                preco = 1.8;
+                totalMaca = maca * preco;
+            } else {
+                preco = 1.5;
+                totalMaca = maca * preco
+            }
+            
+            total = totalMaca + totalMorango;
+
+            if(pesoTotal >= 8 || total >= 25){
+                desconto = total * 10/100
+                total = total - desconto
+            } 
+            
+            document.querySelector(".result").innerHTML =   `${morango != 0 ? `+ R$${totalMorango.toFixed(2)} (Morango) <br>` : ""}` +
+                                                            `${maca != 0 ? `+ R$${totalMaca.toFixed(2)} (Maçã) <br>` : ""}` +
+                                                            `${desconto != 0 ? `- R$${desconto.toFixed(2)} (Desconto) <br>` : ""}` +
+                                                            "<hr>" +
+                                                            `Total: R$${total}`;                              
+        })
+    </script>
+</body>
+</html>

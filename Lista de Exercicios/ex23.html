@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peso Ideal</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .line{
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+        .line select{
+            width: 50px;
+            height: 30px;
+            text-align: center;
+            border-radius: 5px;
+            border: 1px solid #d4d4d4;
+        }
+        .line select, .line input{
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1 class="title">Peso Ideal</h1>
+        
+            <input type="text" name="" id="nome" class="inputText" placeholder="Nome">
+            <div class="line">
+                <p>Sexo: </p>
+
+                <select id="sexo">
+                    <option value="m">M</option>
+                    <option value="f">F</option>
+                </select>
+            </div>
+            
+            <div class="line">
+                <p>Altura: </p>
+                <input type="text" name="" min="00" max="23" id="altura" class="inputText" placeholder="Altura">
+            </div>
+            <button class="btn">Calcular</button>
+            <div class="result"></div>
+        </div>
+    </div>
+    
+
+    <script>
+        document.querySelector(".btn").addEventListener("click", () => {
+            let nome = document.querySelector("#nome").value;
+            let sexo = document.querySelector("#sexo").value;
+            let altura = parseFloat(document.querySelector("#altura").value);
+            let peso_ideal;
+
+            if(sexo == "m"){
+                peso_ideal = (72.7 * altura) - 58;
+            }else{
+                peso_ideal = (62.1 * altura) - 44.7;
+            }
+
+            document.querySelector(".result").innerHTML = `Olá, <strong>${nome}</strong>! <br>` + `Seu peso ideal é: <strong>${peso_ideal.toFixed(2)}</strong>`;                              
+        })
+    </script>
+</body>
+</html>

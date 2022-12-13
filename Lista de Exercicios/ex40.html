@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venda de Produto</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .line{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1 class="title">Venda de Produto</h1>
+            <div class="line">
+                <p>Nome: </p>
+                <input type="text" name="" id="nome" class="inputText" placeholder="Nome do produto">
+            </div>
+            <div class="line">
+                <p>Quantidade: </p>
+                <input type="number" name="" id="quant" class="inputText" placeholder="Quantidade">
+            </div>
+            <div class="line">
+                <p>Preço unitário: </p>
+                <input type="number" name="" id="preco" class="inputText" placeholder="Valor">
+            </div>
+
+            <button class="btn">Calcular</button>
+            <div class="result"></div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector(".btn").addEventListener("click", () => {
+            let nome = document.querySelector("#nome").value;
+            let quant = parseInt(document.querySelector("#quant").value);
+            let preco = parseInt(document.querySelector("#preco").value);
+            let total = quant * preco;
+            let desconto;
+
+            if(quant <= 5){
+                desconto = total * 2/100;
+                total = total - desconto;
+            } else if(quant > 5 && quant <= 10){
+                desconto = total * 3/100;
+                total = total - desconto;
+            } else {
+                desconto = total * 5/100;
+                total = total - desconto;
+            }
+
+            document.querySelector(".result").innerHTML = `Nome:<strong>${nome}</strong><br>` +
+                                                          `Valor Unitário:<strong> R$${preco.toFixed(2)}</strong><br><br>` +
+                                                          `Total a pagar:<strong> R$${total.toFixed(2)}</strong>`;
+            
+        })
+    </script>
+</body>
+</html>

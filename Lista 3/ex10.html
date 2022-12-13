@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eleição Sindical</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .container{
+            flex-direction: row;
+        }
+        .inputText{
+            margin: 0.625rem 0rem !important;
+        }
+        .btn{
+            margin-top: 0.625rem;
+        }
+        .candidato{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .candidato input{
+            width: 200px;
+        }
+        .result{
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+            width: 250px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1 class="title">Eleição Sindical</h1>
+            <div class="candidato">
+                <p>Primeiro(a) Candidato(a): </p>
+                <input type="number" name="" id="num1" class="inputText" placeholder="Votos">
+            </div>
+            <div class="candidato">
+                <p>Segundo(a) Candidato(a): </p>
+                <input type="number" name="" id="num2" class="inputText" placeholder="Votos">
+            </div>
+            <div class="candidato">
+                <p>Terceiro(a) Candidato(a): </p>
+                <input type="number" name="" id="num3" class="inputText" placeholder="Votos">
+            </div>
+            <div class="candidato">
+                <p>Votos Nulos: </p>
+                <input type="number" name="" id="num4" class="inputText" placeholder="Nulos">
+            </div>
+            <div class="candidato">
+                <p>Votos Brancos: </p>
+                <input type="number" name="" id="num5" class="inputText" placeholder="Brancos">
+            </div>
+            <button class="btn">Calcular</button>
+        </div>
+        <div class="result"></div>
+    </div>
+    
+
+    <script>
+        document.querySelector(".btn").addEventListener("click", () => {
+            let a = parseInt(document.querySelector("#num1").value);
+            let b = parseInt(document.querySelector("#num2").value);  
+            let c = parseInt(document.querySelector("#num3").value);  
+            let nulos = parseInt(document.querySelector("#num4").value);  
+            let brancos = parseInt(document.querySelector("#num5").value);  
+            let total = a + b + c + nulos + brancos;
+
+            document.querySelector(".result").style.display = "flex";
+
+            document.querySelector(".result").innerHTML = `<div>Candidato A:  &nbsp;<strong> ${(a * (100/total)).toFixed(1)} % </strong></div><br>` +
+            `<div>Candidato B:  &nbsp;<strong> ${(b * (100/total)).toFixed(1)} % </strong></div><br>` +
+            `<div>Candidato C:  &nbsp;<strong> ${(c * (100/total)).toFixed(1)} % </strong></div><br><br>` +
+            `<div>Total de eleitores: <strong> ${total} </strong></div><br>` +
+            `<div>Nulos:  &nbsp;<strong> ${(nulos * (100/total)).toFixed(1)} % </strong></div><br>` +
+            `<div>Brancos:  &nbsp;<strong> ${(brancos * (100/total)).toFixed(1)} % </strong></div><br>`;
+        })
+    </script>
+</html>

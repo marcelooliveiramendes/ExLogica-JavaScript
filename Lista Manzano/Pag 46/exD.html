@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impares de 0 a 20</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1 class="title">Impares de 0 a 20</h1>
+            <div class="result"></div>
+        </div>   
+    </div>
+    
+
+    <script>
+        let total = 0;
+
+        for(let i = 0; i <= 20; i++){
+            if(i % 2 == 1){
+                document.querySelector(".result").innerHTML += `<strong>${i}</strong><br>`;
+            }
+        }
+    </script>
+</body>
+</html>

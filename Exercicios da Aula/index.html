@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronometro</title>
+</head>
+<body>
+    <div class="timer">
+        
+        
+    </div>
+
+
+    <script>
+        let horas = 0;
+        let minutos = 0;
+        let segundos = 0;
+
+
+        setInterval(()=>{
+            segundos++
+
+            if(segundos > 59){
+                minutos++
+                segundos = 0;
+
+                if(minutos > 59){
+                    horas++
+                    minutos = 0;
+                }
+            }
+
+            document.querySelector(".timer").innerHTML = (horas < 10 ? '0' + horas : horas) + ":" + (minutos < 10 ? '0' + minutos : minutos) + ":" + (segundos < 10 ? '0' + segundos : segundos)
+        },1000)
+
+
+    </script>
+    
+</body>
+</html>

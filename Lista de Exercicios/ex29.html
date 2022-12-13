@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma dos Maiores</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .inputText{
+            margin: 0.625rem 0rem !important;
+        }
+        .btn{
+            margin-top: 0.625rem;
+        }
+        .line{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .line input{
+            width: 200px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1 class="title">Soma dos Maiores</h1>
+            <div class="line">
+                <p>Primeiro Número: </p>
+                <input type="number" id="num1" class="inputText" placeholder="Números">
+            </div>
+            <div class="line">
+                <p>Segundo Número: </p>
+                <input type="number" id="num2" class="inputText" placeholder="Números">
+            </div>
+            <div class="line">
+                <p>Terceiro Número: </p>
+                <input type="number" id="num3" class="inputText" placeholder="Números">
+            </div>
+            <button class="btn">Calcular</button>
+            <div class="result"></div>
+        </div>
+    </div>
+
+   
+    
+
+    <script>
+        document.querySelector(".btn").addEventListener("click", () => {
+            let a = parseInt(document.querySelector("#num1").value);
+            let b = parseInt(document.querySelector("#num2").value);  
+            let c = parseInt(document.querySelector("#num3").value);  
+            
+            if(a < b && a < c){
+                document.querySelector(".result").innerHTML = `${c} + ${b}  <strong>${c + b}</strong>`;
+            }
+            if(a > b && b > c){
+                document.querySelector(".result").innerHTML = `${b} + ${c}  <strong>${b + c}</strong>`;
+            }
+            if(c > a && c > b){
+                document.querySelector(".result").innerHTML = `${a} + ${c}  <strong>${a + b}</strong>`;
+            }
+        })
+    </script>
+</html>

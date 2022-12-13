@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partida de Futebol</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .inputText{
+            margin: 0.625rem 0rem !important;
+        }
+        .btn{
+            margin-top: 0.625rem;
+        }
+        .line{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .line input{
+            width: 200px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1 class="title">Partida de Futebol</h1>
+        
+            <input type="text" id="nome1" class="inputText" placeholder="Nome do primeiro time">
+            <input type="text" id="nome2" class="inputText" placeholder="Nome do segundo time   ">
+
+            <div class="line">
+                <p>Placar do primeiro time: </p>
+                <input type="number" id="num1" class="inputText" placeholder="Números">
+            </div>
+            <div class="line">
+                <p>Placar do segundo time: </p>
+                <input type="number" id="num2" class="inputText" placeholder="Números">
+            </div>
+            <button class="btn">Calcular</button>
+            <div class="result"></div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector(".btn").addEventListener("click", () => {
+            let nome1 = document.querySelector("#nome1").value;
+            let nome2 = document.querySelector("#nome2").value;
+            let placar1 = parseInt(document.querySelector("#num1").value);
+            let placar2 = parseInt(document.querySelector("#num2").value);  
+
+            if(placar1 > placar2){
+                document.querySelector(".result").innerHTML = `${nome1} é o vencedor! <br>` + `${nome1} ${placar1} x ${placar2} ${nome2}`;
+            } else {
+                document.querySelector(".result").innerHTML = `${nome2} é o vencedor! <br>` + `${nome2} ${placar2} x ${placar1} ${nome1}`;
+            }
+
+        })
+    </script>
+</html>

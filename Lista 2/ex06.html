@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Celsius</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1 class="title">Calculadora de Celsius</h1>
+            <input type="number" name="" id="num" class="inputText" placeholder="Digite a temperatura em Fahrenheit:">
+            <button class="btn">Calcular</button>
+            <div class="result"></div>
+        </div>
+        <strong></strong>
+    </div>
+    <script>
+        document.querySelector(".btn").addEventListener("click", () => {
+            let temp = parseInt(document.querySelector("#num").value)
+
+            document.querySelector(".result").innerHTML = `Temperatura em Fahrenheit: <strong>${temp} °C</strong> <br>` + `Temperatura em Celsius: <strong>${(temp - 32)* (5/9)} °F</strong> <br>`; 
+            ;
+        })
+    </script>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comissão Por Carro</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .line{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1 class="title">Comissão Por Carro</h1>
+            <div class="line">
+                <p>Salário Fixo: </p>
+                <input type="number" name="" id="num1" class="inputText" placeholder="Valor">
+            </div>
+            <div class="line">
+                <p>Carros Vendidos: </p>
+                <input type="number" name="" id="num2" class="inputText" placeholder="Quantidade">
+            </div>
+            <div class="line">
+                <p>Valor Total de Vendas: </p>
+                <input type="number" name="" id="num3" class="inputText" placeholder="Total">
+            </div>
+            <div class="line">
+                <p>Percentual por carro vendido: </p>
+                <input type="number" name="" id="num4" class="inputText" placeholder="Percentual">
+            </div>
+            <button class="btn">Calcular</button>
+            <div class="result"></div>
+        </div>
+    </div>
+    
+
+    <script>
+        document.querySelector(".btn").addEventListener("click", () => {
+            let salario = parseInt(document.querySelector("#num1").value);
+            let carrosVendidos = parseInt(document.querySelector("#num2").value);
+            let totalVendas = parseInt(document.querySelector("#num3").value);
+            let comissaoPorCarro = parseInt(document.querySelector("#num4").value);
+            let comissao, total;
+
+            comissaoPorCarro = comissaoPorCarro / 100;
+            total = (totalVendas / carrosVendidos) * comissaoPorCarro;
+            comissao = (totalVendas * 5/100) + total;
+            
+
+            document.querySelector(".result").innerHTML = `Salário Fixo:<strong> R$${salario}</strong><br>` +
+                                                          `Comissão Total:<strong> R$${comissao}</strong><br><br>` +
+                                                          `Salário Atualizado:<strong> R$${comissao + salario}</strong>`;
+            
+        })
+    </script>
+</body>
+</html>

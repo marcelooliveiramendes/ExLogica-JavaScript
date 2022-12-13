@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aposentadoria</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .line{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1 class="title">Aposentadoria</h1>
+            <div class="line">
+                <p>Código do Funcionário: </p>
+                <input type="number" name="" id="num1" class="inputText" placeholder="Código">
+            </div>
+            <div class="line">
+                <p>Ano de Nascimento: </p>
+                <input type="number" name="" id="num2" class="inputText" placeholder="Ano de Nascimento">
+            </div>
+            <div class="line">
+                <p>Ano de Ingresso: </p>
+                <input type="number" name="" id="num3" class="inputText" placeholder="Ano de Ingresso">
+            </div>
+            <button class="btn">Calcular</button>
+            <div class="result"></div>
+        </div>
+    </div>
+    
+
+    <script>
+        let ano = new Date();
+        ano.getFullYear();
+
+        document.querySelector(".btn").addEventListener("click", () => {
+            let codFunc = parseInt(document.querySelector("#num1").value);
+            let anoN = parseInt(document.querySelector("#num2").value);
+            let anoI = parseInt(document.querySelector("#num3").value);
+            let idade, tempoT;
+
+            idade = ano.getFullYear() - anoN;
+            tempoT = ano.getFullYear() - anoI;
+
+            let pode;
+
+            if(idade >= 65){
+                pode = true;
+            } else if(tempoT >= 30){
+                pode = true;
+            } else if(idade >= 60 && tempoT >= 25){
+                pode = true;
+            } else {
+                pode = false;
+            }
+
+            document.querySelector(".result").innerHTML = `Código do funcionário:<strong> # ${codFunc}</strong><br>`+
+            `Idade:<strong> ${idade}</strong> anos<br>` +
+            `Tempo de trabalho:<strong> ${tempoT}</strong> anos<br>` +
+            
+           `${pode ? '<strong style="color: #0f0;">Requerer aposentadoria</strong>' : '<strong style="color: #f00;">Não requerer</strong>'}` ;
+            
+        })
+    </script>
+</body>
+</html>

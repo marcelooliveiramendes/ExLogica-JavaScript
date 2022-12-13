@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1 class="title">Tabuada</h1>
+            <input type="number" name="" id="num" class="inputText" placeholder="Digite um número">
+
+            <button class="btn">Calcular</button>
+
+            <div class="result"></div>
+        </div>   
+    </div>
+    
+
+    <script>
+        document.querySelector(".btn").addEventListener("click", () => {
+            let num = parseInt(document.querySelector("#num").value)
+            let count = 1;
+
+            document.querySelector(".result").innerHTML = "";
+
+            if(document.querySelector("#num").value === ''){
+                alert("Digite um número!")
+            } else {
+                while(count <= 10){
+                    document.querySelector(".result").innerHTML += `${num} x ${count} = <strong>${num * count} </strong> <br>`;
+                    console.log(num);
+                    count++;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

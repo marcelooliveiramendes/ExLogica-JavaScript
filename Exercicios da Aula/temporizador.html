@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronometro</title>
+</head>
+<body>
+    <div class="timer">
+        <input type="text" class="hora" placeholder="hora">
+        <input type="text" class="minutos" placeholder="minutos">
+        <input type="text" class="segundos" placeholder="segundos">
+        <button>Comecar</button>
+        
+    </div>
+
+
+    <script>
+        document.querySelector("timer").addEventListener("click", ()=>{
+            let horas = document.querySelector(".horas").value;
+            let minutos = document.querySelector(".minutos").value;
+            let segundos = document.querySelector(".segundos").value;
+    
+    
+            setInterval(()=>{
+                segundos--
+    
+                if(segundos > 0){
+                    minutos--
+                    segundos = 59;
+    
+                    if(minutos > 59){
+                        horas++
+                        minutos = 0;
+                    }
+                }
+    
+                document.querySelector(".timer").innerHTML = (horas < 10 ? '0' + horas : horas) + ":" + (minutos < 10 ? '0' + minutos : minutos) + ":" + (segundos < 10 ? '0' + segundos : segundos)
+            },1000)
+
+        })
+
+
+
+
+    </script>
+    
+</body>
+</html>

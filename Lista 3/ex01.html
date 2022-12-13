@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Distributiva</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .inputText{
+            margin: 0.625rem 0rem !important;
+        }
+        .btn{
+            margin-top: 0.625rem;
+        }
+        .result{
+            max-height: 18.75rem;
+            overflow-x: auto;
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1 class="title">Calculadora Distributiva</h1>
+            <input type="number" name="" id="num1" class="inputText" placeholder="Digite o valor de A">
+            <input type="number" name="" id="num2" class="inputText" placeholder="Digite o valor de B">
+            <input type="number" name="" id="num3" class="inputText" placeholder="Digite o valor de C">
+            <input type="number" name="" id="num4" class="inputText" placeholder="Digite o valor de D">
+            <button class="btn">Calcular</button>
+            <div class="result"></div>
+        </div>
+    </div>
+    
+
+    <script>
+        document.querySelector(".btn").addEventListener("click", () => {
+            let a = parseInt(document.querySelector("#num1").value);
+            let b = parseInt(document.querySelector("#num2").value);
+            let c = parseInt(document.querySelector("#num3").value);
+            let d = parseInt(document.querySelector("#num4").value);    
+
+            document.querySelector(".result").innerHTML =   '<div>'+ `${a} + ${b} = ${a + b}<br>` +
+                                                            `${a} + ${c} = ${a + c}<br>` +
+                                                            `${a} + ${d} = ${a + d}<br>` +
+                                                            `${b} + ${c} = ${b + c}<br>` +
+                                                            `${b} + ${d} = ${b + d}<br>` +
+                                                            `${c} + ${d} = ${c + d}<br>` + '</div>'+
+                                                            '<div>' + `${a} x ${b} = ${a * b}<br>` +
+                                                            `${a} x ${c}  = ${a * c}<br>` +
+                                                            `${a} x ${d}  = ${a * d}<br>` +
+                                                            `${b} x ${c}  = ${b * c}<br>` +
+                                                            `${b} x ${d}  = ${b * d}<br>` +
+                                                            `${c} x ${d}  = ${c * d}<br>` + '</div>';    
+        })
+    </script>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        input{
+            width: 100%;
+        }
+       .passwordbox{
+            display: none;
+       }
+       .failed-user, .failed-password{
+            display: none;
+            width: 100%;
+            color: #f00;
+            font-weight: 600;
+            text-align: center;
+       }
+       .after{
+            display: none;
+            width: 100%;
+            color: #0f0;
+            font-weight: 600;
+            text-align: center;
+       }
+       .btnuser{
+        width: 100%;
+        height: 40px;
+        border-radius: 5px;
+        border: 1px solid #d4d4d4;
+        background-color: #67159C;
+        color: #fff;
+        font-weight: 500;
+        transition: .3s ease-in;
+        }
+        .btnuser:hover{
+            border: 1px solid #67159C;
+            background: transparent;
+            color: #67159C;
+        }
+        .btnpassword{
+            width: 100%;
+            height: 40px;
+            border-radius: 5px;
+            border: 1px solid #d4d4d4;
+            background-color: #67159C;
+            color: #fff;
+            font-weight: 500;
+            transition: .3s ease-in;
+        }
+        .btnpassword:hover{
+            border: 1px solid #67159C;
+            background: transparent;
+            color: #67159C;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            
+            <div class="userbox">
+                <h1 class="title">Login</h1>
+                <br>
+                <p>Digite o usuário: </p>
+                <input type="number" name="" id="user" class="inputText" placeholder="Usuário">
+                <button class="btnuser">Entrar</button>
+            </div>
+            <div class="passwordbox">
+                <h1 class="title">Login</h1>
+                <br>
+                <p>Digite a senha: </p>
+                <input type="number" name="" id="password" class="inputText" placeholder="Senha">
+                <button class="btnpassword">Entrar</button>
+            </div>
+
+            <div class="failed-user">
+                Usuário inválido!
+            </div>
+            <div class="failed-password">
+                Senha incorreta!
+            </div>
+
+            <div class="after">
+                Acesso permitido!
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector(".btnuser").addEventListener("click", () => {
+            let user = parseInt(document.querySelector("#user").value);
+    
+            if(user == 1234){
+                document.querySelector(".userbox").style.display = "none";
+                document.querySelector(".passwordbox").style.display = "block";
+            } else {
+                document.querySelector(".userbox").style.display = "none";
+                document.querySelector(".failed-user").style.display = "block";
+                setTimeout(() => {
+                    document.querySelector(".failed-user").style.display = "none";
+                    document.querySelector(".userbox").style.display = "block";
+                }, 1000)
+            }
+            
+        })
+        document.querySelector(".btnpassword").addEventListener("click", () => {
+            let password = parseInt(document.querySelector("#password").value);
+
+            if(password == 9999){
+                document.querySelector(".passwordbox").style.display = "none";
+                document.querySelector(".after").style.display = "block";
+            } else {
+                document.querySelector(".passwordbox").style.display = "none";
+                document.querySelector(".failed-password").style.display = "block";
+
+                setTimeout(() => {
+                    document.querySelector(".failed-password").style.display = "none";
+                    document.querySelector(".passwordbox").style.display = "block";
+                }, 1000)
+            }
+        });
+    </script>
+</body>
+</html>
